@@ -103,6 +103,22 @@ static const esp_target_t esp_target[ESP_MAX_CHIP] = {
         .read_spi_config = spi_config_esp32xx,
     },
 
+        // ESP32C3 -- alternate magic value
+    {
+        .regs = {
+            .cmd  = ESP32C3_SPI_REG_BASE + 0x00,
+            .usr  = ESP32C3_SPI_REG_BASE + 0x18,
+            .usr1 = ESP32C3_SPI_REG_BASE + 0x1c,
+            .usr2 = ESP32C3_SPI_REG_BASE + 0x20,
+            .w0   = ESP32C3_SPI_REG_BASE + 0x58,
+            .mosi_dlen = ESP32C3_SPI_REG_BASE + 0x24,
+            .miso_dlen = ESP32C3_SPI_REG_BASE + 0x28,
+        },
+        .efuse_base = 0x60008800,
+        .chip_magic_value = 0x1b31506f,
+        .read_spi_config = spi_config_esp32xx,
+    },
+    
     // ESP32S3
     {
         .regs = {
